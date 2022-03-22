@@ -16,13 +16,12 @@
           console.log('logged in ', session, message)
           console.log('Session = ', authx.getSession())
       }
-      const authx = AuthX("XtBmtPSWtstdFrhSXEEYiWs5Dx19nmOGhZjS4LGa", {
-            redirect_uri: "https://www.edusko.com/signin",
+      const authx = AuthX("ZKTIeE7KIfBcIg2Vy5P3ExGaM7qFllY9YN3TYirD", {
+            redirect_uri: "https://tranquil-marigold-4376b7.netlify.app/",
             locale: 'en',
             isSpa: true,
             onComplete: loginHandler,
             onError: function (error) {
-              console.log(error);
                 alert(error.message)
             }
         })
