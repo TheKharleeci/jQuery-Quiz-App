@@ -7,28 +7,29 @@
     <title>Quiz</title>
     <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
   </head>
-  <body style="background-color:darkgray">
-    <div id='start'><button style="background-color: green;" > Quiz</button></div>
-    <div id='quiz'hidden>
-      <div id='question'><p>Question</p></div>
-        <div id='options'>
-          <div class='option' id='A'><p>A</p></div>
-          <div class='option' id='B'><p>B</p></div>
-          <div class='option' id='C'><p>C</p></div>
-        </div>
-    </div>
-    <div id='scoreContainer' hidden>
-      <p id="scoreShow"></p>
-    </div>
-    <div class="demo">
-
-    </div>
-
+  <body style="background-color:burlywood">
+    <button onclick="login()" type="button",  class="block w-full bg-gray-special rounded p-3 font-sans text-sm text-gray-200">Login</button>    
     
-    
-    <script src="jquery-3.5.1.js"></script>
-    <script src="quiz.js"></script>
-    <script src="jquery.fireworks.js"></script>
+    <script src="https://ajs.radius.africa/authx.js"></script>
+    <script type="text/javascript">
+      function loginHandler (session, message) {
+          console.log('logged in ', session, message)
+          console.log('Session = ', authx.getSession())
+      }
+      const authx = AuthX("XtBmtPSWtstdFrhSXEEYiWs5Dx19nmOGhZjS4LGa", {
+            redirect_uri: "https://www.edusko.com/signin",
+            locale: 'en',
+            isSpa: true,
+            onComplete: loginHandler,
+            onError: function (error) {
+              console.log(error);
+                alert(error.message)
+            }
+        })
+      function login() {
+          authx.initiateSession()
+      }
+    </script>
     
     <!-- <script src="quiz.js"></script> -->
   </body>
